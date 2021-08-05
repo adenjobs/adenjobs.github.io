@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "menlain.css",
+	"sources": [
+		"menlain.scss"
+	],
+	"sourcesContent": [
+		"body{\n  background: #ECF5FD;\n}\n.my-definition{\n  font-size: 1.2em;\n  background: #cccccc;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,AAAA,CACF,UAAU,CAAE,OAAO,CACpB,AACD,AAAA,cAAc,AAAA,CACZ,SAAS,CAAE,KAAK,CAChB,UAAU,CAAE,OAAO,CACpB"
+}

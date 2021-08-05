@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<!-- Main Content -->
+<div class="container">
+
+  <div class="row">
+    {% if site.sidebar == false %}
+    <!-- NO SIDEBAR -->
+    <!-- PostList Container -->
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1
+      postlist-container">
+      {{ content }}
+    </div>
+    {% else %}
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="col-span-2">
+        {{ content }}
+      </div>
+      <div>
+        {% include sidebar.html %}
+        {% include github.html %}
+
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
