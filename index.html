@@ -5,7 +5,7 @@ description: "「离开世界之前 一切都是过程」"
 
 {% for post in paginator.posts %}
 <a href="{{ post.url | prepend: site.baseurl }}">
-  <div class="bg-white animate__animated animate__zoomIn rounded mb-2 p-6">
+  <div class="bg-white hover:text-green-500 animate__animated animate__zoomIn rounded mb-2 p-6">
     <h2 class="text-lg font-bold">
       <i class="fas fa-code-branch"></i>{{ post.title }}
     </h2>

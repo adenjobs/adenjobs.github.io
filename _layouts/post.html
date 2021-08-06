@@ -1,7 +1,60 @@
 ---
 layout: default
 ---
+<div class="grid grid-cols-3 gap-3">
+  <div class="col-span-2">
+    <div class="bg-white p-4 rounded mb-4">
+      <div class="mb-3">
+        {% for tag in page.tags %}
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="{{ site.baseurl }}/archive/?tag={{ tag | url_encode }}" title="{{ tag }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      <h1 class="text-lg font-bold">{{ page.title }}</h1>
+    </div>
+    <div class="bg-white post-content p-4 rounded">
 
-<div class="bg-white p-4 rounded">
-  {{ content }}
+      {{ content }}
+    </div>
+    <ul class="overflow-auto mt-4">
+      {% if page.previous.url %}
+      <li class="previous pull-left">
+        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+          上一篇<br>
+          <span>{{page.previous.title}}</span>
+        </a>
+      </li>
+      {% endif %}
+      {% if page.next.url %}
+      <li class="next pull-right">
+        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
+          下一篇<br>
+          <span>{{page.next.title}}</span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+    <div class="mt-4">
+      <div class="bg-white p-4">
+        <div id="gitalk-container"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    {% include sidebar.html %}
+    {% include github.html %}
+  </div>
 </div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '225c4e9a59b541df1516',
+        clientSecret: 'db55fe13360124aae69f05bc930c06874dab3b32',
+        repo: 'menlain.github.io',
+        owner: 'menlain',
+        admin: ['menlain'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>

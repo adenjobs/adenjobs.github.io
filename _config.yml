@@ -1,4 +1,4 @@
-title: menlain
+title: Menlain
 email: mzzmliang@gmail.com
 description: "Hey"
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -16,7 +16,7 @@ RSS: false
 theme: minima
 highlighter: rouge
 permalink: pretty
-paginate: 1
+paginate: 10
 anchorjs: true
 
 

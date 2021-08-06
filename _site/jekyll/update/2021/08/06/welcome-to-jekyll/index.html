@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Hey">
   <meta name="keywords" content="">
@@ -15,11 +14,19 @@
         content="Welcome to Jekyll! - ">
   
   <meta property="og:type" content="article">
-  <meta property="og:description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run je...">
+  <meta property="og:description" content="这是一个测试标题
+
+  这是一段引用
+
+">
   
   <meta property="article:published_time" content=" 2021-08-06T19:33:33Z">
   
   
+  
+  <meta property="article:tag" content="jekyll">
+  
+  <meta property="article:tag" content="update">
   
   
   <meta property="og:image" content="/img/avatar-hux-ny.jpg">
@@ -47,7 +54,6 @@
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
         type="text/css">
 
-
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -55,48 +61,119 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+  <!-- Gitalk -->
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/assets/css/menlain.css">
 
   <!-- ga & ba script hoook -->
   <script></script>
+
+  <style>
+    body{
+      background-color: #ECF5FD;
+    }
+  </style>
 </head>
 
 
 <body ontouchstart="">
-    <div class="max-w-5xl sm:w-full mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-6xl sm:w-full mx-auto sm:px-6 lg:px-8">
         <div class="flex py-8 flex-row justify-center items-center">
   <div>
-    <a href="">首页</a>
+    <a href="/" class="inline-block px-3 py-2 rounded bg-blue-200 hover:bg-blue-500 hover:text-white text-sm">首页</a>
   </div>
 </div>
-        <div class="bg-white p-4 rounded">
-  <p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+        <div class="grid grid-cols-3 gap-3">
+  <div class="col-span-2">
+    <div class="bg-white p-4 rounded mb-4">
+      <div class="mb-3">
+        
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=jekyll" title="jekyll">jekyll</a>
+        
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=update" title="update">update</a>
+        
+      </div>
+      <h1 class="text-lg font-bold">Welcome to Jekyll!</h1>
+    </div>
+    <div class="bg-white post-content p-4 rounded">
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
+      <h1 id="这是一个测试标题">这是一个测试标题</h1>
+<blockquote>
+  <p>这是一段引用</p>
+</blockquote>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+<p><code class="language-plaintext highlighter-rouge">asss</code></p>
 
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
-
-
+    </div>
+    <ul class="overflow-auto mt-4">
+      
+      <li class="previous pull-left">
+        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="/jekyll/update/2021/08/05/welcome-to-jekyll/" data-toggle="tooltip" data-placement="top" title="Welcome to Jekyll!">
+          上一篇<br>
+          <span>Welcome to Jekyll!</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+    <div class="mt-4">
+      <div class="bg-white p-4">
+        <div id="gitalk-container"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="bg-white relative p-2 mb-2 rounded animate__animated animate__zoomIn">
+  <div class="flex flex-row items-center">
+    <div class="avatar w-20">
+      <img src="/assets/images/avatar.jpeg" alt="">
+    </div>
+    <div>
+      <h1 class="text-xl font-bold tracking-widest">MENLAIN</h1>
+      <p class="text-xs mt-1 text-gray-400"><i class="fa fa-map-marker"></i><span class="ml-1">HeNan,China</span></p>
+      <a href="https://github.com/menlain" target="_blank">
+        <div class="absolute px-3 py-1 rounded hover:bg-gray-300 right-0 top-0 bg-gray-100 text-xl text-black">
+          <i class="fa fa-github"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+    <div class="mb-2">
+  <img src="https://github-readme-stats.vercel.app/api?username=menlain&show_icons=true&icon_color=13CE66&text_color=2C405A&bg_color=ffffff&hide_title=true" />
+</div>
+  </div>
 </div>
 
-        
+<script>
+    var gitalk = new Gitalk({
+        clientID: '225c4e9a59b541df1516',
+        clientSecret: 'db55fe13360124aae69f05bc930c06874dab3b32',
+        repo: 'menlain.github.io',
+        owner: 'menlain',
+        admin: ['menlain'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+
+        <div class="footer bg-white rounded p-3 mt-4">
+  <div class="flex flex-row items-center justify-between">
+    <div class="text-xs text-gray-400">
+      <i class="fa fa-copyright"></i> Menlain 2021 <span class="mx-2">|</span> Created by <a href="http://huangxuan.me">Menlain</a> with ❤️
     </div>
-
-
-
+    <div class="">
+      <a href="https://github.com/menlain" target="_blank"><i class="fa fa-github"></i></a>
+      <a href="mailto:mzzmliang@gmail.com" target="_blank" class="ml-2"><i class="fa fa-envelope"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
 </body>
 
 </html>
