@@ -5,6 +5,7 @@
 }
 body {
   background: #ECF5FD;
+  font-family: "mono";
 }
 
 code.language-plaintext, code.highlighter-rouge {

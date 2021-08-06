@@ -1,12 +1,18 @@
-<div class="bg-white relative p-2 mb-2 rounded animate__animated animate__zoomIn">
+<div class="bg-white relative p-4 mb-2 rounded animate__animated animate__zoomIn">
+  <h5 class="font-bold text-green-500"><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
   <div class="flex flex-row items-center">
     <div class="avatar w-20">
-      <img src="/assets/images/avatar.jpeg" alt="">
+      {% if site.sidebar-avatar %}
+      <img src="{{site.sidebar-avatar}}" />
+      {% endif %}
     </div>
     <div>
-      <h1 class="text-xl font-bold tracking-widest">MENLAIN</h1>
-      <p class="text-xs mt-1 text-gray-400"><i class="fa fa-map-marker"></i><span class="ml-1">HeNan,China</span></p>
-      <a href="https://github.com/menlain" target="_blank">
+      <h1 class="text-xl font-bold tracking-widest uppercase">{{ site.title }}</h1>
+      <p class="text-xs mt-1 text-gray-400"><i class="fa fa-map-marker"></i><span class="ml-1">{{ site.location }}</span></p>
+      {% if site.sidebar-about-description %}
+      <p class="text-xs text-gray-400 mt-1">{{site.sidebar-about-description}}</p>
+      {% endif %}
+      <a href="https://github.com/menlain" title="@{{ site.title }}" target="_blank">
         <div class="absolute px-3 py-1 rounded hover:bg-gray-300 right-0 top-0 bg-gray-100 text-xl text-black">
           <i class="fa fa-github"></i>
         </div>

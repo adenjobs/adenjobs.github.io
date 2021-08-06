@@ -1,11 +1,12 @@
 title: Menlain
 email: mzzmliang@gmail.com
+realname: 张长恩
+location: HeNan,China
 description: "Hey"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  menlain
-
 # Publish posts or collection documents with a future date.
 future: true
 
@@ -30,8 +31,8 @@ sass:
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "黄玄，前端娱乐圈 NPC，编程语言/编译器初心者 <br> An UI/Frontend dev & designer accidentally growing into a compiler/PL hacker."
-sidebar-avatar: /img/avatar-hux-ny.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "一个简单的梦想：想成为一个合格的程序员"
+sidebar-avatar: /assets/images/avatar.jpeg
 
 
 

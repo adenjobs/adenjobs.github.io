@@ -28,14 +28,11 @@
   <meta property="article:tag" content="php7.2">
   
   
-  <meta property="og:image" content="/img/avatar-hux-ny.jpg">
+  <meta property="og:image" content="/assets/images/avatar.jpeg">
   <meta property="og:url" content="/ubuntu/lamp/2021/08/06/Ubuntu%E5%AE%89%E8%A3%85LAMP/">
   <meta property="og:site_name" content="">
 
   <title>Ubuntu安装LAMP - </title>
-
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="/pwa/manifest.json">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
@@ -80,15 +77,38 @@
 
 <body ontouchstart="">
     <div class="max-w-6xl sm:w-full mx-auto sm:px-6 lg:px-8">
-        <div class="flex py-8 flex-row justify-center items-center">
-  <div>
-    <a href="/" class="inline-block px-3 py-2 rounded bg-blue-200 hover:bg-blue-500 hover:text-white text-sm">首页</a>
-  </div>
+        <div class="flex py-8 flex-row gap-4 justify-center items-center">
+    <a href="/" class="inline-block px-3 py-2 rounded bg-green-100 hover:bg-green-500 hover:text-white text-sm">
+      Home
+    </a>
+    
+    
+    
+    
+    <a href="/about/" class="inline-block px-3 py-2 rounded bg-green-100 hover:bg-green-500 hover:text-white text-sm">
+      About
+    </a>
+    
+    
+    
+    <a href="/archive/" class="inline-block px-3 py-2 rounded bg-green-100 hover:bg-green-500 hover:text-white text-sm">
+      Archive
+    </a>
+    
+    
+    
+    
+    
+    
+    
+    
 </div>
+
         <div class="grid grid-cols-3 gap-3">
   <div class="col-span-2">
     <div class="bg-white p-4 rounded">
-      <div>
+      <div class="flex flex-row items-center gap-2">
+        <a class="text-gray-400 hover:text-green-500" href="javascript:history.go(-1);"><i class="fa fa-arrow-left"></i> 返回</a>
         
         <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=ubuntu" title="ubuntu">ubuntu</a>
         
@@ -175,7 +195,7 @@ service mysql restart
     <ul class="overflow-auto mt-4">
       
       <li class="previous pull-left">
-        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="/ubuntu/2021/08/06/Ubuntu-18.04-LTS-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90/" data-toggle="tooltip" data-placement="top" title="Ubuntu 18.04 LTS 更换国内源">
+        <a class="inline-block text-center px-4 py-2 rounded bg-green-100 border border-green-100 text-green-500 hover:bg-green-500 hover:text-white" href="/ubuntu/2021/08/06/Ubuntu-18.04-LTS-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90/" data-toggle="tooltip" data-placement="top" title="Ubuntu 18.04 LTS 更换国内源">
           上一篇<br>
           <span>Ubuntu 18.04 LTS 更换国内源</span>
         </a>
@@ -190,15 +210,21 @@ service mysql restart
     </div>
   </div>
   <div>
-    <div class="bg-white relative p-2 mb-2 rounded animate__animated animate__zoomIn">
+    <div class="bg-white relative p-4 mb-2 rounded animate__animated animate__zoomIn">
+  <h5 class="font-bold text-green-500"><a href="/about/">ABOUT ME</a></h5>
   <div class="flex flex-row items-center">
     <div class="avatar w-20">
-      <img src="/assets/images/avatar.jpeg" alt="">
+      
+      <img src="/assets/images/avatar.jpeg" />
+      
     </div>
     <div>
-      <h1 class="text-xl font-bold tracking-widest">MENLAIN</h1>
+      <h1 class="text-xl font-bold tracking-widest uppercase">Menlain</h1>
       <p class="text-xs mt-1 text-gray-400"><i class="fa fa-map-marker"></i><span class="ml-1">HeNan,China</span></p>
-      <a href="https://github.com/menlain" target="_blank">
+      
+      <p class="text-xs text-gray-400 mt-1">一个简单的梦想：想成为一个合格的程序员</p>
+      
+      <a href="https://github.com/menlain" title="@Menlain" target="_blank">
         <div class="absolute px-3 py-1 rounded hover:bg-gray-300 right-0 top-0 bg-gray-100 text-xl text-black">
           <i class="fa fa-github"></i>
         </div>
@@ -209,6 +235,60 @@ service mysql restart
     <div class="mb-2">
   <img src="https://github-readme-stats.vercel.app/api?username=menlain&show_icons=true&icon_color=13CE66&text_color=2C405A&bg_color=ffffff&hide_title=true" />
 </div>
+    
+
+<section class="bg-white p-4 rounded">
+  <h5 class="font-bold text-green-500"><a href="/archive/">FEATURED TAGS</a></h5>
+  <div class=" mt-2">
+    
+    
+    
+    
+    
+    <a data-sort="0001"
+       href="/archive/?tag=ubuntu"
+       title="ubuntu"
+       class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white"
+       rel="4">ubuntu</a>
+    
+    <a data-sort="0004"
+       href="/archive/?tag=%E9%98%B2%E7%81%AB%E5%A2%99"
+       title="防火墙"
+       class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white"
+       rel="1">防火墙</a>
+    
+    <a data-sort="0004"
+       href="/archive/?tag=apache"
+       title="apache"
+       class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white"
+       rel="1">apache</a>
+    
+    <a data-sort="0004"
+       href="/archive/?tag=centos"
+       title="centos"
+       class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white"
+       rel="1">centos</a>
+    
+    <a data-sort="0004"
+       href="/archive/?tag=certbot"
+       title="certbot"
+       class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white"
+       rel="1">certbot</a>
+    
+    <a data-sort="0004"
+       href="/archive/?tag=lamp"
+       title="lamp"
+       class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white"
+       rel="1">lamp</a>
+    
+    <a data-sort="0004"
+       href="/archive/?tag=php7.2"
+       title="php7.2"
+       class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white"
+       rel="1">php7.2</a>
+  </div>
+</section>
+
   </div>
 </div>
 
