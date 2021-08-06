@@ -82,20 +82,27 @@
     <div class="grid grid-cols-3 gap-3">
       <div class="col-span-2">
         
-<a href="/jekyll/update/2021/08/06/welcome-to-jekyll/">
+<a href="/ubuntu/lamp/2021/08/06/Ubuntu%E5%AE%89%E8%A3%85LAMP/">
   <div class="bg-white hover:text-green-500 animate__animated animate__zoomIn rounded mb-2 p-6">
     <h2 class="text-lg font-bold">
-      <i class="fas fa-code-branch"></i>Welcome to Jekyll!
+      <i class="fas fa-code-branch"></i>Ubuntu安装LAMP
     </h2>
     <div class="post-content-preview mt-2 text-gray-400 text-sm">
       
-      这是一个测试标题
+      Ubuntu安装LAMP
 
-  这是一段引用
+PHP7.2
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.2
 
 
-asss
+Apache2
+sudo apt-get install apache2
 
+
+PHP常用扩展
+sudo apt-get install php7.2-fpm php7.2-m...
       
     </div>
     <p class="post-meta text-right mt-2 font-thin text-sm text-gray-500">
@@ -104,18 +111,123 @@ asss
   </div>
 </a>
 
-<a href="/jekyll/update/2021/08/05/welcome-to-jekyll/">
+<a href="/ubuntu/2021/08/06/Ubuntu-18.04-LTS-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90/">
   <div class="bg-white hover:text-green-500 animate__animated animate__zoomIn rounded mb-2 p-6">
     <h2 class="text-lg font-bold">
-      <i class="fas fa-code-branch"></i>Welcome to Jekyll!
+      <i class="fas fa-code-branch"></i>Ubuntu 18.04 LTS 更换国内源
     </h2>
     <div class="post-content-preview mt-2 text-gray-400 text-sm">
       
-      You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run je...
+      Ubuntu 18.04 LTS 更换国内源
+解决问题
+· 解决终端下载速度慢的问题
+
+· 解决镜像文件过期导致无法安装软件问题
+
+步骤
+1.备份原源列表
+sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+
+2. 打开sources.list文件修改
+sudo vim /etc/apt/sources.list
+
+
+3.编辑...
       
     </div>
     <p class="post-meta text-right mt-2 font-thin text-sm text-gray-500">
-      August 5, 2021
+      August 6, 2021
+    </p>
+  </div>
+</a>
+
+<a href="/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos-%E9%98%B2%E7%81%AB%E5%A2%99/">
+  <div class="bg-white hover:text-green-500 animate__animated animate__zoomIn rounded mb-2 p-6">
+    <h2 class="text-lg font-bold">
+      <i class="fas fa-code-branch"></i>Centos防火墙设置
+    </h2>
+    <div class="post-content-preview mt-2 text-gray-400 text-sm">
+      
+      Centos 防火墙设置
+
+检查是否安装/查看状态
+systemctl status firewalld
+
+安装防火墙
+yum install firewalld systemd -y
+
+
+开启防火墙
+systemctl start firewalld.service
+
+
+关闭防火墙
+systemctl stop firewalld.service
+
+
+设置开机启动
+systemctl en...
+      
+    </div>
+    <p class="post-meta text-right mt-2 font-thin text-sm text-gray-500">
+      August 6, 2021
+    </p>
+  </div>
+</a>
+
+<a href="/ubuntu/certbot/apache/2021/08/06/%E4%BD%BF%E7%94%A8certbot%E5%9C%A8Ubuntu%E9%85%8D%E7%BD%AEHttps%E8%AF%81%E4%B9%A6/">
+  <div class="bg-white hover:text-green-500 animate__animated animate__zoomIn rounded mb-2 p-6">
+    <h2 class="text-lg font-bold">
+      <i class="fas fa-code-branch"></i>使用certbot在Ubuntu配置Https证书
+    </h2>
+    <div class="post-content-preview mt-2 text-gray-400 text-sm">
+      
+      使用certbot在Ubuntu配置Https证书
+
+
+
+
+  通过Certbot可以轻松配置Https://，Certbot官网
+
+
+选择操作系统版本与服务器软件
+
+  以Apache和Ubuntu 18.04为例
+
+
+1.在服务器上运行SSH
+以具有 sudo 权限的用户身份通过 SSH 连接到运行你的 HTTP 网站的服务器。
+2.安装Snapd
+您需要安装 snapd 并确保按照任何...
+      
+    </div>
+    <p class="post-meta text-right mt-2 font-thin text-sm text-gray-500">
+      August 6, 2021
+    </p>
+  </div>
+</a>
+
+<a href="/ubuntu/2021/08/06/ubuntu%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+  <div class="bg-white hover:text-green-500 animate__animated animate__zoomIn rounded mb-2 p-6">
+    <h2 class="text-lg font-bold">
+      <i class="fas fa-code-branch"></i>Ubuntu系统常用操作
+    </h2>
+    <div class="post-content-preview mt-2 text-gray-400 text-sm">
+      
+      Ubuntu系统常用操作
+
+获取 Ubuntu 代号
+lsb_release -a
+
+
+修改主机名
+sudo hostnamectl set-hostname XXX
+
+
+      
+    </div>
+    <p class="post-meta text-right mt-2 font-thin text-sm text-gray-500">
+      August 6, 2021
     </p>
   </div>
 </a>

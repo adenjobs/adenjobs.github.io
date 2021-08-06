@@ -3,17 +3,15 @@ layout: default
 ---
 <div class="grid grid-cols-3 gap-3">
   <div class="col-span-2">
-    <div class="bg-white p-4 rounded mb-4">
-      <div class="mb-3">
+    <div class="bg-white p-4 rounded">
+      <div>
         {% for tag in page.tags %}
         <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="{{ site.baseurl }}/archive/?tag={{ tag | url_encode }}" title="{{ tag }}">{{ tag }}</a>
         {% endfor %}
       </div>
-      <h1 class="text-lg font-bold">{{ page.title }}</h1>
-    </div>
-    <div class="bg-white post-content p-4 rounded">
-
-      {{ content }}
+      <div class="post-content">
+        {{ content }}
+      </div>
     </div>
     <ul class="overflow-auto mt-4">
       {% if page.previous.url %}

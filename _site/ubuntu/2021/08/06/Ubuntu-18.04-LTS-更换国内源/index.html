@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Hey">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="">
+
+  <!-- Open Graph -->
+  <meta property="og:title"
+        content="Ubuntu 18.04 LTS 更换国内源 - ">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Ubuntu 18.04 LTS 更换国内源
+解决问题
+· 解决终端下载速度慢的问题
+">
+  
+  <meta property="article:published_time" content=" 2021-08-06T13:30:00Z">
+  
+  
+  
+  <meta property="article:tag" content="ubuntu">
+  
+  
+  <meta property="og:image" content="/img/avatar-hux-ny.jpg">
+  <meta property="og:url" content="/ubuntu/2021/08/06/Ubuntu-18.04-LTS-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90/">
+  <meta property="og:site_name" content="">
+
+  <title>Ubuntu 18.04 LTS 更换国内源 - </title>
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/pwa/manifest.json">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="/ubuntu/2021/08/06/Ubuntu-18.04-LTS-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90/">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
+  <!-- Custom Fonts -->
+  <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Gitalk -->
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/menlain.css">
+
+  <!-- ga & ba script hoook -->
+  <script></script>
+
+  <style>
+    body{
+      background-color: #ECF5FD;
+    }
+  </style>
+</head>
+
+
+<body ontouchstart="">
+    <div class="max-w-6xl sm:w-full mx-auto sm:px-6 lg:px-8">
+        <div class="flex py-8 flex-row justify-center items-center">
+  <div>
+    <a href="/" class="inline-block px-3 py-2 rounded bg-blue-200 hover:bg-blue-500 hover:text-white text-sm">首页</a>
+  </div>
+</div>
+        <div class="grid grid-cols-3 gap-3">
+  <div class="col-span-2">
+    <div class="bg-white p-4 rounded">
+      <div>
+        
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=ubuntu" title="ubuntu">ubuntu</a>
+        
+      </div>
+      <div class="post-content">
+        <h1 id="ubuntu-1804-lts-更换国内源">Ubuntu 18.04 LTS 更换国内源</h1>
+<h2 id="解决问题">解决问题</h2>
+<p>· 解决终端下载速度慢的问题</p>
+
+<p>· 解决镜像文件过期导致无法安装软件问题</p>
+
+<h2 id="步骤">步骤</h2>
+<h3 id="1备份原源列表">1.备份原源列表</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+</code></pre></div></div>
+<h3 id="2-打开sourceslist文件修改">2. 打开sources.list文件修改</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vim /etc/apt/sources.list
+</code></pre></div></div>
+
+<h3 id="3编辑etcaptsourceslist文件-在文件最前面添加阿里云镜像源">3.编辑/etc/apt/sources.list文件, 在文件最前面添加阿里云镜像源：</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#  阿里源
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##中科大源
+deb https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-updates main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-backports main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-security main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-security main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-proposed main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-old-releases/ubuntu/ cosmic-proposed main restricted universe multiverse
+</code></pre></div></div>
+
+<h3 id="4刷新列表">4.刷新列表</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential
+</code></pre></div></div>
+
+      </div>
+    </div>
+    <ul class="overflow-auto mt-4">
+      
+      <li class="previous pull-left">
+        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos-%E9%98%B2%E7%81%AB%E5%A2%99/" data-toggle="tooltip" data-placement="top" title="Centos防火墙设置">
+          上一篇<br>
+          <span>Centos防火墙设置</span>
+        </a>
+      </li>
+      
+      
+      <li class="next pull-right">
+        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="/ubuntu/lamp/2021/08/06/Ubuntu%E5%AE%89%E8%A3%85LAMP/" data-toggle="tooltip" data-placement="top" title="Ubuntu安装LAMP">
+          下一篇<br>
+          <span>Ubuntu安装LAMP</span>
+        </a>
+      </li>
+      
+    </ul>
+    <div class="mt-4">
+      <div class="bg-white p-4">
+        <div id="gitalk-container"></div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="bg-white relative p-2 mb-2 rounded animate__animated animate__zoomIn">
+  <div class="flex flex-row items-center">
+    <div class="avatar w-20">
+      <img src="/assets/images/avatar.jpeg" alt="">
+    </div>
+    <div>
+      <h1 class="text-xl font-bold tracking-widest">MENLAIN</h1>
+      <p class="text-xs mt-1 text-gray-400"><i class="fa fa-map-marker"></i><span class="ml-1">HeNan,China</span></p>
+      <a href="https://github.com/menlain" target="_blank">
+        <div class="absolute px-3 py-1 rounded hover:bg-gray-300 right-0 top-0 bg-gray-100 text-xl text-black">
+          <i class="fa fa-github"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+    <div class="mb-2">
+  <img src="https://github-readme-stats.vercel.app/api?username=menlain&show_icons=true&icon_color=13CE66&text_color=2C405A&bg_color=ffffff&hide_title=true" />
+</div>
+  </div>
+</div>
+
+<script>
+    var gitalk = new Gitalk({
+        clientID: '225c4e9a59b541df1516',
+        clientSecret: 'db55fe13360124aae69f05bc930c06874dab3b32',
+        repo: 'menlain.github.io',
+        owner: 'menlain',
+        admin: ['menlain'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+
+    gitalk.render('gitalk-container')
+</script>
+
+        <div class="footer bg-white rounded p-3 mt-4">
+  <div class="flex flex-row items-center justify-between">
+    <div class="text-xs text-gray-400">
+      <i class="fa fa-copyright"></i> Menlain 2021 <span class="mx-2">|</span> Created by <a href="http://huangxuan.me">Menlain</a> with ❤️
+    </div>
+    <div class="">
+      <a href="https://github.com/menlain" target="_blank"><i class="fa fa-github"></i></a>
+      <a href="mailto:mzzmliang@gmail.com" target="_blank" class="ml-2"><i class="fa fa-envelope"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
+</body>
+
+</html>

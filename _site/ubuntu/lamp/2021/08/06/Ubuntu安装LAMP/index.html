@@ -11,29 +11,28 @@
 
   <!-- Open Graph -->
   <meta property="og:title"
-        content="Welcome to Jekyll! - ">
+        content="Ubuntu安装LAMP - ">
   
   <meta property="og:type" content="article">
-  <meta property="og:description" content="这是一个测试标题
-
-  这是一段引用
-
+  <meta property="og:description" content="Ubuntu安装LAMP
 ">
   
-  <meta property="article:published_time" content=" 2021-08-06T19:33:33Z">
+  <meta property="article:published_time" content=" 2021-08-06T13:30:00Z">
   
   
   
-  <meta property="article:tag" content="jekyll">
+  <meta property="article:tag" content="ubuntu">
   
-  <meta property="article:tag" content="update">
+  <meta property="article:tag" content="lamp">
+  
+  <meta property="article:tag" content="php7.2">
   
   
   <meta property="og:image" content="/img/avatar-hux-ny.jpg">
-  <meta property="og:url" content="/jekyll/update/2021/08/06/welcome-to-jekyll/">
+  <meta property="og:url" content="/ubuntu/lamp/2021/08/06/Ubuntu%E5%AE%89%E8%A3%85LAMP/">
   <meta property="og:site_name" content="">
 
-  <title>Welcome to Jekyll! - </title>
+  <title>Ubuntu安装LAMP - </title>
 
   <!-- Web App Manifest -->
   <link rel="manifest" href="/pwa/manifest.json">
@@ -42,7 +41,7 @@
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="/jekyll/update/2021/08/06/welcome-to-jekyll/">
+  <link rel="canonical" href="/ubuntu/lamp/2021/08/06/Ubuntu%E5%AE%89%E8%A3%85LAMP/">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -88,32 +87,97 @@
 </div>
         <div class="grid grid-cols-3 gap-3">
   <div class="col-span-2">
-    <div class="bg-white p-4 rounded mb-4">
-      <div class="mb-3">
+    <div class="bg-white p-4 rounded">
+      <div>
         
-        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=jekyll" title="jekyll">jekyll</a>
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=ubuntu" title="ubuntu">ubuntu</a>
         
-        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=update" title="update">update</a>
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=lamp" title="lamp">lamp</a>
+        
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=php7.2" title="php7.2">php7.2</a>
         
       </div>
-      <h1 class="text-lg font-bold">Welcome to Jekyll!</h1>
-    </div>
-    <div class="bg-white post-content p-4 rounded">
+      <div class="post-content">
+        <h1 id="ubuntu安装lamp">Ubuntu安装LAMP</h1>
 
-      <h1 id="这是一个测试标题">这是一个测试标题</h1>
-<blockquote>
-  <p>这是一段引用</p>
-</blockquote>
+<h2 id="php72">PHP7.2</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.2
+</code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">asss</code></p>
+<h2 id="apache2">Apache2</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install apache2
+</code></pre></div></div>
 
+<h2 id="php常用扩展">PHP常用扩展</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install php7.2-fpm php7.2-mysql php7.2-curl php7.2-json php7.2-mbstring php7.2-xml  php7.2-intl 
+</code></pre></div></div>
+<h2 id="其他扩展">其他扩展</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install php7.2-gd
+sudo apt-get install php7.2-soap
+sudo apt-get install php7.2-gmp    
+sudo apt-get install php7.2-odbc       
+sudo apt-get install php7.2-pspell     
+sudo apt-get install php7.2-bcmath   
+sudo apt-get install php7.2-enchant    
+sudo apt-get install php7.2-imap       
+sudo apt-get install php7.2-ldap       
+sudo apt-get install php7.2-opcache
+sudo apt-get install php7.2-readline   
+sudo apt-get install php7.2-sqlite3    
+sudo apt-get install php7.2-xmlrpc
+sudo apt-get install php7.2-bz2
+sudo apt-get install php7.2-interbase
+sudo apt-get install php7.2-pgsql      
+sudo apt-get install php7.2-recode     
+sudo apt-get install php7.2-sybase     
+sudo apt-get install php7.2-xsl
+sudo apt-get install php7.2-cgi        
+sudo apt-get install php7.2-dba 
+sudo apt-get install php7.2-phpdbg     
+sudo apt-get install php7.2-snmp       
+sudo apt-get install php7.2-tidy       
+sudo apt-get install php7.2-zip
+</code></pre></div></div>
+
+<h2 id="mysql">Mysql</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install mysql-server
+sudo apt install mysql-client
+sudo apt install libmysqlclient-dev
+</code></pre></div></div>
+
+<h3 id="mysql更新密码">Mysql更新密码</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; use mysql;
+
+// mysql 5.7
+mysql&gt; update user set authentication_string=PASSWORD("密码") where user='root';
+ 
+// mysql8 以上
+mysql&gt; ALTER USER '你的用户名默认root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你的密码';
+
+mysql&gt; update user set plugin="mysql_native_password";
+
+mysql&gt; flush privileges;
+
+mysql&gt; exit;
+// 重启mysql服务
+service mysql restart
+
+</code></pre></div></div>
+
+<h3 id="mysql创建utf-8数据库">Mysql创建UTF-8数据库</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE DATABASE `mydb` CHARACTER SET utf8 COLLATE utf8_general_ci;
+</code></pre></div></div>
+
+      </div>
     </div>
     <ul class="overflow-auto mt-4">
       
       <li class="previous pull-left">
-        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="/jekyll/update/2021/08/05/welcome-to-jekyll/" data-toggle="tooltip" data-placement="top" title="Welcome to Jekyll!">
+        <a class="inline-block text-center px-4 py-2 rounded bg-blue-100 text-blue-500 hover:bg-blue-500 hover:text-white" href="/ubuntu/2021/08/06/Ubuntu-18.04-LTS-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90/" data-toggle="tooltip" data-placement="top" title="Ubuntu 18.04 LTS 更换国内源">
           上一篇<br>
-          <span>Welcome to Jekyll!</span>
+          <span>Ubuntu 18.04 LTS 更换国内源</span>
         </a>
       </li>
       

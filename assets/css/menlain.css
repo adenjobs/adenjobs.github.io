@@ -19,6 +19,7 @@ code.language-plaintext, code.highlighter-rouge {
 
 code, kbd, pre, samp {
   font-family: "mono";
+  overflow-x: scroll;
 }
 
 .highlight,
@@ -369,6 +370,12 @@ pre {
 .post-content {
   color: #3F536E;
 }
+.post-content a {
+  color: #2a7ae2;
+}
+.post-content a:hover {
+  text-decoration: underline;
+}
 .post-content h1,
 .post-content h2,
 .post-content h3,
@@ -443,8 +450,8 @@ pre {
 .post-content .h5,
 .post-content h6,
 .post-content .h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .post-content h4 small,
 .post-content .h4 small,
@@ -474,18 +481,19 @@ pre {
 }
 .post-content h4,
 .post-content .h4 {
-  font-size: 12px;
+  font-size: 16px;
 }
 .post-content h5,
 .post-content .h5 {
-  font-size: 8px;
+  font-size: 14px;
 }
 .post-content h6,
 .post-content .h6 {
   font-size: 6px;
 }
 .post-content p {
-  margin: 0 0 10px;
+  margin: 10px 0 10px;
+  color: #8DABC4;
 }
 .post-content .lead {
   margin-bottom: 20px;
