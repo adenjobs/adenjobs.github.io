@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-06T16:51:50+08:00</updated><id>/feed.xml</id><title type="html">Menlain</title><subtitle>Hey</subtitle><entry><title type="html">Centos防火墙设置</title><link href="/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos-%E9%98%B2%E7%81%AB%E5%A2%99/" rel="alternate" type="text/html" title="Centos防火墙设置" /><published>2021-08-06T13:30:00+08:00</published><updated>2021-08-06T13:30:00+08:00</updated><id>/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos%20%E9%98%B2%E7%81%AB%E5%A2%99</id><content type="html" xml:base="/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos-%E9%98%B2%E7%81%AB%E5%A2%99/">&lt;h1 id=&quot;centos-防火墙设置&quot;&gt;Centos 防火墙设置&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-07T17:27:38+08:00</updated><id>/feed.xml</id><title type="html">Menlain</title><subtitle>Hey</subtitle><entry><title type="html">富文本中base64位图片处理方式</title><link href="/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-PHP%E7%89%88/" rel="alternate" type="text/html" title="富文本中base64位图片处理方式" /><published>2021-08-07T12:30:00+08:00</published><updated>2021-08-07T12:30:00+08:00</updated><id>/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%5BPHP%E7%89%88%5D</id><content type="html" xml:base="/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-PHP%E7%89%88/">&lt;h1 id=&quot;富文本中base64位图片处理方式php版&quot;&gt;富文本中base64位图片处理方式（PHP版）&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;正则表达式匹配全部base64图片&lt;/li&gt;
+  &lt;li&gt;foreach循环：
+    &lt;ul&gt;
+      &lt;li&gt;将base64图片保存到本地并获取地址&lt;/li&gt;
+      &lt;li&gt;将字符串中的原base64位替换成新的地址&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/&amp;lt;\s*img\s+[^&amp;gt;]*?src\s*=\s*(\'|\&quot;)(.*?)\\1[^&amp;gt;]*?\/?\s*&amp;gt;/i
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;preg_match_all('/&amp;lt;\s*img\s+[^&amp;gt;]*?src\s*=\s*(\'|\&quot;)(.*?)\\1[^&amp;gt;]*?\/?\s*&amp;gt;/i',htmlspecialchars_decode($str),$match);
+
+if(isset($match[2])){
+	$base64s = $match[2];
+	foreach ($base64s as $base64) {
+		// Todo upload
+		// ...
+		
+		// Todo replace
+		$str = str_replace($base64, $newStr, $str);
+
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="php" /><category term="富文本" /><category term="php" /><category term="base64图片" /><category term="富文本" /><summary type="html">富文本中base64位图片处理方式（PHP版） 正则表达式匹配全部base64图片 foreach循环： 将base64图片保存到本地并获取地址 将字符串中的原base64位替换成新的地址</summary></entry><entry><title type="html">Centos防火墙设置</title><link href="/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos-%E9%98%B2%E7%81%AB%E5%A2%99/" rel="alternate" type="text/html" title="Centos防火墙设置" /><published>2021-08-06T13:30:00+08:00</published><updated>2021-08-06T13:30:00+08:00</updated><id>/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos%20%E9%98%B2%E7%81%AB%E5%A2%99</id><content type="html" xml:base="/centos/%E9%98%B2%E7%81%AB%E5%A2%99/2021/08/06/Centos-%E9%98%B2%E7%81%AB%E5%A2%99/">&lt;h1 id=&quot;centos-防火墙设置&quot;&gt;Centos 防火墙设置&lt;/h1&gt;
 
 &lt;h2 id=&quot;检查是否安装查看状态&quot;&gt;检查是否安装/查看状态&lt;/h2&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl status firewalld
