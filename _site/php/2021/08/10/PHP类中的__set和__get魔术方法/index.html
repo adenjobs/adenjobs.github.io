@@ -11,34 +11,32 @@
 
   <!-- Open Graph -->
   <meta property="og:title"
-        content="Ubuntu安装LAMP - ">
+        content="PHP类中的__set和__get魔术方法 - ">
   
   <meta property="og:type" content="article">
-  <meta property="og:description" content="Ubuntu安装LAMP
+  <meta property="og:description" content="PHP类中的__set和__get魔术方法
 ">
   
-  <meta property="article:published_time" content=" 2021-08-06T13:30:00Z">
+  <meta property="article:published_time" content=" 2021-08-10T17:30:00Z">
   
   
   
-  <meta property="article:tag" content="ubuntu">
+  <meta property="article:tag" content="php">
   
-  <meta property="article:tag" content="lamp">
-  
-  <meta property="article:tag" content="php7.2">
+  <meta property="article:tag" content="魔术方法">
   
   
   <meta property="og:image" content="/assets/images/avatar.jpeg">
-  <meta property="og:url" content="/ubuntu/lamp/2021/08/06/Ubuntu%E5%AE%89%E8%A3%85LAMP/">
+  <meta property="og:url" content="/php/2021/08/10/PHP%E7%B1%BB%E4%B8%AD%E7%9A%84__set%E5%92%8C__get%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/">
   <meta property="og:site_name" content="">
 
-  <title>Ubuntu安装LAMP - </title>
+  <title>PHP类中的__set和__get魔术方法 - </title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="/ubuntu/lamp/2021/08/06/Ubuntu%E5%AE%89%E8%A3%85LAMP/">
+  <link rel="canonical" href="/php/2021/08/10/PHP%E7%B1%BB%E4%B8%AD%E7%9A%84__set%E5%92%8C__get%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -110,104 +108,84 @@
       <div class="flex flex-row items-center gap-2">
         <a class="text-gray-400 hover:text-green-500" href="javascript:history.go(-1);"><i class="fa fa-arrow-left"></i> 返回</a>
         
-        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=ubuntu" title="ubuntu">ubuntu</a>
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=php" title="php">php</a>
         
-        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=lamp" title="lamp">lamp</a>
-        
-        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=php7.2" title="php7.2">php7.2</a>
+        <a class="inline-block border px-2 py-1 text-xs rounded bg-green-50 border-green-500 hover:bg-green-500 text-green-700 hover:text-white" href="/archive/?tag=%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95" title="魔术方法">魔术方法</a>
         
       </div>
       <div class="post-content">
-        <h1 id="ubuntu安装lamp">Ubuntu安装LAMP</h1>
+        <h1 id="php类中的__set和__get魔术方法">PHP类中的__set和__get魔术方法</h1>
 
-<h2 id="php72">PHP7.2</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository ppa:ondrej/php
-sudo apt-get update
-sudo apt-get install php7.2
+<h2 id="使用示例">使用示例</h2>
+<p>假如我们有以下类(<code class="language-plaintext highlighter-rouge">Account.php</code>)：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+class Account
+{
+	private $user = 1;
+	private $pwd = 2;
+}
+
+
+$a = new Account();
+echo $a-&gt;user .PHP_EOL;
+?&gt;
 </code></pre></div></div>
-
-<h2 id="apache2">Apache2</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install apache2
+<p>我们想直接调用并获取里面的属性值:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php Account.php
 </code></pre></div></div>
-
-<h2 id="php常用扩展">PHP常用扩展</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install php7.2-fpm php7.2-mysql php7.2-curl php7.2-json php7.2-mbstring php7.2-xml  php7.2-intl 
+<p>不出意外的话，额，会报错，因为<code class="language-plaintext highlighter-rouge">$user</code>和<code class="language-plaintext highlighter-rouge">$pwd</code>是私有属性，不能直接被获取，报错信息如下：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PHP Fatal error:  Uncaught Error: Cannot access private property Account::$user in Account.php
 </code></pre></div></div>
-<h2 id="其他扩展">其他扩展</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install php7.2-gd
-sudo apt-get install php7.2-soap
-sudo apt-get install php7.2-gmp    
-sudo apt-get install php7.2-odbc       
-sudo apt-get install php7.2-pspell     
-sudo apt-get install php7.2-bcmath   
-sudo apt-get install php7.2-enchant    
-sudo apt-get install php7.2-imap       
-sudo apt-get install php7.2-ldap       
-sudo apt-get install php7.2-opcache
-sudo apt-get install php7.2-readline   
-sudo apt-get install php7.2-sqlite3    
-sudo apt-get install php7.2-xmlrpc
-sudo apt-get install php7.2-bz2
-sudo apt-get install php7.2-interbase
-sudo apt-get install php7.2-pgsql      
-sudo apt-get install php7.2-recode     
-sudo apt-get install php7.2-sybase     
-sudo apt-get install php7.2-xsl
-sudo apt-get install php7.2-cgi        
-sudo apt-get install php7.2-dba 
-sudo apt-get install php7.2-phpdbg     
-sudo apt-get install php7.2-snmp       
-sudo apt-get install php7.2-tidy       
-sudo apt-get install php7.2-zip
+<p>那么我们想要获取有没有办法呢？有的！那就是使用<code class="language-plaintext highlighter-rouge">__set()</code>和<code class="language-plaintext highlighter-rouge">__get()</code>两个魔术方法，我们修改<code class="language-plaintext highlighter-rouge">Account.php</code>代码如下：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+class Account
+{
+	private $user = 1;
+	private $pwd = 2;
+
+	public function __set($name , $value)
+	{
+		echo "Setting $name to $value \r\n";
+		$this-&gt;$name = $value;
+	}
+
+	public function __get($name)
+	{
+		if(!isset($this-&gt;$name)){
+			$this-&gt;$name = "未设置此变量";
+		}else{
+			return $this-&gt;$name;
+		}
+	}
+}
+
+$a = new Account();
+echo $a-&gt;user .PHP_EOL;
+
+?&gt;
 </code></pre></div></div>
-
-<h2 id="mysql">Mysql</h2>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install mysql-server
-sudo apt install mysql-client
-sudo apt install libmysqlclient-dev
+<p>然后再运行起来，就正常了</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ php Account.php 
+1
 </code></pre></div></div>
+<h2 id="增加程序的健壮性">增加程序的健壮性</h2>
+<blockquote>
+  <p>PHP手册里把以上两个方法归到重载，PHP的重载和JAVA的重载不同。PHP提供的”重载”指动态地”创建”类属性和方法。</p>
+</blockquote>
 
-<h3 id="mysql更新密码">Mysql更新密码</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; use mysql;
-
-// mysql 5.7
-mysql&gt; update user set authentication_string=PASSWORD("密码") where user='root';
- 
-// mysql8 以上
-mysql&gt; ALTER USER '你的用户名默认root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你的密码';
-
-mysql&gt; update user set plugin="mysql_native_password";
-
-mysql&gt; flush privileges;
-
-mysql&gt; exit;
-// 重启mysql服务
-service mysql restart
-
-</code></pre></div></div>
-
-<h3 id="mysql创建utf-8数据库">Mysql创建UTF-8数据库</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE DATABASE `mydb` CHARACTER SET utf8 COLLATE utf8_general_ci;
-</code></pre></div></div>
+<p>在以上案例中，我们看到如果在类中定义了__set()和__get()这一对魔术方法，那么当给对象属性赋值或取值时，即使这个属性不存在，也不会报错，这就在一定程度上增强了程序的健壮性。</p>
 
       </div>
     </div>
     <ul class="overflow-auto mt-4">
       
       <li class="previous pull-left">
-        <a class="inline-block text-center px-4 py-2 rounded bg-green-100 border border-green-100 text-green-500 hover:bg-green-500 hover:text-white" href="/ubuntu/2021/08/06/Ubuntu-18.04-LTS-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90/" data-toggle="tooltip" data-placement="top" title="Ubuntu 18.04 LTS 更换国内源">
-          上一篇<br>
-          <span>Ubuntu 18.04 LTS 更换国内源</span>
-        </a>
-      </li>
-      
-      
-      <li class="next pull-right">
         <a class="inline-block text-center px-4 py-2 rounded bg-green-100 border border-green-100 text-green-500 hover:bg-green-500 hover:text-white" href="/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-PHP%E7%89%88/" data-toggle="tooltip" data-placement="top" title="富文本中base64位图片处理方式">
-          下一篇<br>
+          上一篇<br>
           <span>富文本中base64位图片处理方式</span>
         </a>
       </li>
+      
       
     </ul>
     <div class="mt-4">

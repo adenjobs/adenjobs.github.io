@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-07T17:27:38+08:00</updated><id>/feed.xml</id><title type="html">Menlain</title><subtitle>Hey</subtitle><entry><title type="html">富文本中base64位图片处理方式</title><link href="/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-PHP%E7%89%88/" rel="alternate" type="text/html" title="富文本中base64位图片处理方式" /><published>2021-08-07T12:30:00+08:00</published><updated>2021-08-07T12:30:00+08:00</updated><id>/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%5BPHP%E7%89%88%5D</id><content type="html" xml:base="/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-PHP%E7%89%88/">&lt;h1 id=&quot;富文本中base64位图片处理方式php版&quot;&gt;富文本中base64位图片处理方式（PHP版）&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-08-10T17:29:42+08:00</updated><id>/feed.xml</id><title type="html">Menlain</title><subtitle>Hey</subtitle><entry><title type="html">PHP类中的__set和__get魔术方法</title><link href="/php/2021/08/10/PHP%E7%B1%BB%E4%B8%AD%E7%9A%84__set%E5%92%8C__get%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/" rel="alternate" type="text/html" title="PHP类中的__set和__get魔术方法" /><published>2021-08-10T17:30:00+08:00</published><updated>2021-08-10T17:30:00+08:00</updated><id>/php/2021/08/10/PHP%E7%B1%BB%E4%B8%AD%E7%9A%84__set%E5%92%8C__get%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95</id><content type="html" xml:base="/php/2021/08/10/PHP%E7%B1%BB%E4%B8%AD%E7%9A%84__set%E5%92%8C__get%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/">&lt;h1 id=&quot;php类中的__set和__get魔术方法&quot;&gt;PHP类中的__set和__get魔术方法&lt;/h1&gt;
+
+&lt;h2 id=&quot;使用示例&quot;&gt;使用示例&lt;/h2&gt;
+&lt;p&gt;假如我们有以下类(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Account.php&lt;/code&gt;)：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+class Account
+{
+	private $user = 1;
+	private $pwd = 2;
+}
+
+
+$a = new Account();
+echo $a-&amp;gt;user .PHP_EOL;
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;我们想直接调用并获取里面的属性值:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php Account.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;不出意外的话，额，会报错，因为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$user&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$pwd&lt;/code&gt;是私有属性，不能直接被获取，报错信息如下：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PHP Fatal error:  Uncaught Error: Cannot access private property Account::$user in Account.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;那么我们想要获取有没有办法呢？有的！那就是使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__set()&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;__get()&lt;/code&gt;两个魔术方法，我们修改&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Account.php&lt;/code&gt;代码如下：&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;?php
+class Account
+{
+	private $user = 1;
+	private $pwd = 2;
+
+	public function __set($name , $value)
+	{
+		echo &quot;Setting $name to $value \r\n&quot;;
+		$this-&amp;gt;$name = $value;
+	}
+
+	public function __get($name)
+	{
+		if(!isset($this-&amp;gt;$name)){
+			$this-&amp;gt;$name = &quot;未设置此变量&quot;;
+		}else{
+			return $this-&amp;gt;$name;
+		}
+	}
+}
+
+$a = new Account();
+echo $a-&amp;gt;user .PHP_EOL;
+
+?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;然后再运行起来，就正常了&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ php Account.php 
+1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;增加程序的健壮性&quot;&gt;增加程序的健壮性&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;PHP手册里把以上两个方法归到重载，PHP的重载和JAVA的重载不同。PHP提供的”重载”指动态地”创建”类属性和方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在以上案例中，我们看到如果在类中定义了__set()和__get()这一对魔术方法，那么当给对象属性赋值或取值时，即使这个属性不存在，也不会报错，这就在一定程度上增强了程序的健壮性。&lt;/p&gt;</content><author><name></name></author><category term="php" /><category term="php" /><category term="魔术方法" /><summary type="html">PHP类中的__set和__get魔术方法</summary></entry><entry><title type="html">富文本中base64位图片处理方式</title><link href="/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-PHP%E7%89%88/" rel="alternate" type="text/html" title="富文本中base64位图片处理方式" /><published>2021-08-07T12:30:00+08:00</published><updated>2021-08-07T12:30:00+08:00</updated><id>/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F%5BPHP%E7%89%88%5D</id><content type="html" xml:base="/php/%E5%AF%8C%E6%96%87%E6%9C%AC/2021/08/07/%E5%AF%8C%E6%96%87%E6%9C%AC%E4%B8%ADbase64%E4%BD%8D%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F-PHP%E7%89%88/">&lt;h1 id=&quot;富文本中base64位图片处理方式php版&quot;&gt;富文本中base64位图片处理方式（PHP版）&lt;/h1&gt;
 &lt;ol&gt;
   &lt;li&gt;正则表达式匹配全部base64图片&lt;/li&gt;
   &lt;li&gt;foreach循环：
